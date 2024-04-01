@@ -17,4 +17,4 @@ jobs:
       - name: increment version
         uses: 'mickem/gh-action-bump-maven-version@v1.0.0'
         with:
-          pom-file: '/pom.xml'
+          pom-file: 'pom.xml'
