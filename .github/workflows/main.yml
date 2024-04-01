@@ -45,8 +45,8 @@ jobs:
     steps:
       
       - name: Change Working Dir to terraform
-        run: cd terraform
-        
+        run: cd /home/ubuntu/terraform
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
