@@ -24,4 +24,4 @@ jobs:
         run: echo "${{ env.VERSION }}"
 
       - name: Build the Docker image
-        run: docker build -t barminz/dependabot:${{ env.VERSION }} .
+        run: docker build --build-arg VERSION=$VERSION -t barminz/dependabot:${{ env.VERSION }} .

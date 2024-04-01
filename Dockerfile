@@ -7,5 +7,6 @@ RUN ls target
 
 FROM openjdk:17-jdk-slim
 
-COPY --from=maven /target/App.jar .
+ARG VERSION
+COPY --from=maven /target/my-app-$VERSION.jar .
 CMD java -jar *.jar
