@@ -18,7 +18,7 @@ jobs:
           pom-file: 'pom.xml'
 
       - name: Save Version
-        run: echo "VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version)" >> $GITHUB_ENV
+        run: echo "VERSION=$(grep version pom.xml | grep -v -e '<?xml|~'| head -n 1 | sed 's/[[:space:]]//g' | sed -E 's/<.{0,1}version>//g' | awk '{print $1}')" >> $GITHUB_ENV
 
       - name: Print Version
         run: echo "${{ env.VERSION }}"
