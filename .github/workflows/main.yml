@@ -17,8 +17,12 @@ jobs:
         with:
           pom-file: 'pom.xml'
 
-      - name: Set Version
-        run: mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version
+      - name: Save Version
+        run: echo"VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate \
+             -Dexpression=project.version)" >> $GITHUB_ENV
+
+      - name: Print Version
+        run: echo "${{ env.VERSION }}"
 
       - name: Build the Docker image
         run: docker build -t barminz/dependabot:$VERSION .
