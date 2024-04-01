@@ -4,18 +4,15 @@ on:
   push:
     branches: [ "master" ]
 
-env:
-  MAJOR: '1'
-  MINOR: '0'
-  PATCH: ${{ github.run_number }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      -uses: actions/checkout@v3
+      - name: Checkout Repo
+        uses: actions/checkout@v3
 
-      - uses:  'mickem/gh-action-bump-maven-version'
+      - name: increment version
+        uses: 'mickem/gh-action-bump-maven-version@v1.0.0'
         with:
-        pom-file:  '/pom.xml'
+          pom-file: '/pom.xml'
