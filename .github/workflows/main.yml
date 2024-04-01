@@ -12,16 +12,8 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - run: ls
-
       - name: increment version
         uses: 'mickem/gh-action-bump-maven-version@v1.0.0'
         with:
           pom-file: 'pom.xml'
 
-      - name: Pull version
-        run: echo "VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version)" >> $GITHUB_OUTPUT
-        id: version
-
-      - name: check variable
-        run: echo "$steps.version.outputs.VERSION"
