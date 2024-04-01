@@ -8,4 +8,4 @@ sudo apt-get install -y docker-ce
 sudo usermod -aG docker ubuntu          
 sudo usermod -aG docker $USER
 
-sudo docker run barminz/dependabot:latest
+sudo docker run -d barminz/dependabot:latest
