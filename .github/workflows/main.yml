@@ -17,11 +17,8 @@ jobs:
         with:
           pom-file: 'pom.xml'
 
-      - name: Setup Maven Action
-        uses: s4u/setup-maven-action@3.8.6
-
       - name: Set Version
-        run: VERSION=${{ mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version }}
+        run: mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version
 
       - name: Build the Docker image
         run: docker build -t barminz/dependabot:$VERSION .
