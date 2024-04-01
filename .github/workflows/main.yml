@@ -20,7 +20,8 @@ jobs:
           pom-file: 'pom.xml'
 
       - name: Pull version
-        run: mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version >> $VERSION
+        run: echo "VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version)" >> $GITHUB_OUTPUT
+        id: version
 
       - name: check variable
-        run: echo "$VERSION"
+        run: echo "$steps.version.outputs.VERSION"
