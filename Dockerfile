@@ -3,7 +3,7 @@ FROM maven:3.8.6-jdk-11 as maven
 COPY . .
 RUN mvn package
 
-RUN ls
+RUN ls target
 
 FROM openjdk:17-jdk-slim
 
