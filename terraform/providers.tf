@@ -11,5 +11,4 @@ terraform {
 
 provider "aws" {
   region  = "eu-north-1"
-  profile = "bar_terraform"
 }
