@@ -18,4 +18,4 @@ jobs:
           pom-file: 'pom.xml'
 
       - name: Build the Docker image
-        run: docker build --build-arg VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version) -t barminz/dependabot:latest .
+        run: docker build -t barminz/dependabot:$(mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version) .
