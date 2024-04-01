@@ -20,4 +20,7 @@ jobs:
           pom-file: 'pom.xml'
 
       - name: Pull version
-        run: mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version
+        run: mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version >> $VERSION
+
+      - name: check variable
+        run: echo "$VERSION"
