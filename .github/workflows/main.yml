@@ -54,11 +54,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-north-1
 
-      - name: Change Dir To Terraform
-        run: cd terraform
-
-      - name: Terraform init
-        run: terraform init
-      
-      - name: Terraform apply
-        run: terraform apply -auto-approve
+      - name: Terraform init and apply
+        run: |
+          cd terraform
+          terraform init
+          terraform apply -auto-aprove
